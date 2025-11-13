@@ -17,6 +17,8 @@ build/
 
 # Maven
 /target/
+
+# Input files
 /inputs/private/
 
 # Kotlin compiler & native caches
