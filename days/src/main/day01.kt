@@ -10,7 +10,7 @@ fun main() {
     println("Part 2: ${solvePart2(lines)}")
 }
 
-fun solvePart1(lines: List<String>): Any {
+private fun solvePart1(lines: List<String>): Any {
     var position = 50
     var zeroCount = 0
 
@@ -28,7 +28,7 @@ fun solvePart1(lines: List<String>): Any {
     return zeroCount
 }
 
-fun solvePart2(lines: List<String>): Any {
+private fun solvePart2(lines: List<String>): Any {
     var position = 50
     var zeroCount = 0
 
