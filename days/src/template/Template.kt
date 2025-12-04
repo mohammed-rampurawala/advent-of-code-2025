@@ -10,10 +10,10 @@ fun main() {
     println("Part 2: ${solvePart2(lines)}")
 }
 
-fun solvePart1(lines: List<String>): Any {
+private fun solvePart1(lines: List<String>): Long {
     return 0
 }
 
-fun solvePart2(lines: List<String>): Any {
+private fun solvePart2(lines: List<String>): Long {
     return 0
 }
