@@ -5,13 +5,12 @@ import kotlin.math.max
 
 fun main() {
     val input = File("inputs/private/day05.txt").readText().trimEnd()
-    val lines = input.lines()
-    val pair = createRange(lines)
+    val pair = prepareData(input.lines())
     println("Part 1: ${solvePart1(pair.first, pair.second)}")
     println("Part 2: ${solvePart2(pair.first)}")
 }
 
-private fun createRange(lines: List<String>): Pair<List<Range>, List<Long>> {
+private fun prepareData(lines: List<String>): Pair<List<Range>, List<Long>> {
     val ranges = mutableListOf<Range>()
     val numbers = mutableListOf<Long>()
     var isBlankLineFound = false
