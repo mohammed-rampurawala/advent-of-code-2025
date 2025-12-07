@@ -9,7 +9,7 @@ fun main() {
     println("Part 2: ${solvePart2(lines)}")
 }
 
-fun solvePart1(lines: List<String>): Long {
+private fun solvePart1(lines: List<String>): Long {
     if (lines.isEmpty()) return 0L
 
     val numberLines = lines.dropLast(1)
@@ -45,7 +45,7 @@ fun solvePart1(lines: List<String>): Long {
     return totalSum
 }
 
-fun solvePart2(lines: List<String>): Long {
+private fun solvePart2(lines: List<String>): Long {
     if (lines.isEmpty()) return 0L
 
     val maxLength = lines.maxOf { it.length }
