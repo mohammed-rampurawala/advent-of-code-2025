@@ -8,26 +8,26 @@ fun main() {
     println("Part 2: ${solvePart2(input)}")
 }
 
-data class Point(val r: Int, val c: Int) {
+data class DataPoint(val r: Int, val c: Int) {
     fun neighbors() = listOf(
-        Point(r - 1, c - 1), Point(r - 1, c), Point(r - 1, c + 1),
-        Point(r, c - 1),                      Point(r, c + 1),
-        Point(r + 1, c - 1), Point(r + 1, c), Point(r + 1, c + 1)
+        DataPoint(r - 1, c - 1), DataPoint(r - 1, c), DataPoint(r - 1, c + 1),
+        DataPoint(r, c - 1),                      DataPoint(r, c + 1),
+        DataPoint(r + 1, c - 1), DataPoint(r + 1, c), DataPoint(r + 1, c + 1)
     )
 }
 
 class Grid(private val map: MutableList<CharArray>) {
     val height = map.size
     val width = map[0].size
-    val indices: Sequence<Point>
+    val indices: Sequence<DataPoint>
         get() = sequence {
             for (r in 0 until height)
-                for (c in 0 until width) yield(Point(r, c))
+                for (c in 0 until width) yield(DataPoint(r, c))
         }
-    operator fun get(p: Point): Char = map[p.r][p.c]
-    operator fun set(p: Point, char: Char) { map[p.r][p.c] = char }
-    fun contains(p: Point) = p.r in 0 until height && p.c in 0 until width
-    fun activeNeighbors(p: Point): Int {
+    operator fun get(p: DataPoint): Char = map[p.r][p.c]
+    operator fun set(p: DataPoint, char: Char) { map[p.r][p.c] = char }
+    fun contains(p: DataPoint) = p.r in 0 until height && p.c in 0 until width
+    fun activeNeighbors(p: DataPoint): Int {
         return p.neighbors().count { neighbor ->
             contains(neighbor) && this[neighbor] == '@'
         }

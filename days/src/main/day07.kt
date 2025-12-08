@@ -12,7 +12,7 @@ fun main() {
     println("Part 2: ${solvePart2Optimized(manifold)}")
 }
 // Time complexity: O(H*W)
-fun solvePart1(lines: List<String>): Long {
+private fun solvePart1(lines: List<String>): Long {
     val startX = lines.first().indexOf('S')
     val visited = mutableSetOf<String>()
     return traceBeam(lines, startX, 0, visited)
@@ -22,18 +22,12 @@ fun traceBeam(grid: List<String>, x: Int, y: Int, visited: MutableSet<String>): 
     if (y >= grid.size || x !in 0 until grid[0].length) {
         return 0
     }
-
     val positionKey = "$x,$y"
-
     if (visited.contains(positionKey)) {
         return 0
     }
-
     visited.add(positionKey)
-
-
     val char = grid[y][x]
-
     return if (char == '^') {
         1 + traceBeam(grid, x - 1, y + 1, visited) + traceBeam(grid, x + 1, y + 1, visited)
     } else {
@@ -42,7 +36,7 @@ fun traceBeam(grid: List<String>, x: Int, y: Int, visited: MutableSet<String>): 
 }
 
 // Time complexity: O(2^k) where K is the number of splitters on a path
-fun solvePart2(lines: List<String>): Long {
+private fun solvePart2(lines: List<String>): Long {
     val startX = lines.first().indexOf('S')
     return traceTimeline(lines, startX, 0)
 }
@@ -66,7 +60,7 @@ fun traceTimeline(grid: List<String>, x: Int, y: Int): Long {
     }
 }
 
-fun solvePart2Optimized(manifold: Manifold): Long {
+private fun solvePart2Optimized(manifold: Manifold): Long {
     // In Part 2, we track the COUNT of timelines at each position.
     // If two timelines converge, they do not merge physically;
     // they just sum up (Example: 1 path from left + 1 path from right = 2 timelines here).
